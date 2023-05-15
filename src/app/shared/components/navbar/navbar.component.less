@@ -1,0 +1,41 @@
+@import url(../../../../assets/style/variables.less);
+
+#navbar {
+    padding: 0 20px;
+    display: flex;
+    background-color: @dark-navbar-color;
+    height: 70px;
+    box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.7);
+}   
+
+ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+li {
+    list-style: none;
+}
+
+li :active{
+    background-color: blue;
+}
+
+li :focus{
+    background-color: orange;
+}
+
+.home-active {
+    background-color: red;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 85px;
+}
