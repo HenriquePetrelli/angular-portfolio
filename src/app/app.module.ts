@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { HomeModule } from './modules/home/home.module';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     AppRoutingModule,
     CoreModule,
     HomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
