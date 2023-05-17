@@ -7,10 +7,11 @@
     <li><a (click)="tabChange('skills')" id="skills" routerLink="skills">Habilidades</a></li>
     <li><a (click)="tabChange('projects')" id="projects" routerLink="projects">Projetos</a></li>
     <li><a (click)="tabChange('education')" id="education" routerLink="education">Educação</a></li>
-    <li><a (click)="tabChange('contact')" id="contact" routerLink="contact">Contato</a></li>  
+    <li><a (click)="tabChange('contact')" id="contact" routerLink="contact">Contato</a></li>
   </ul>
   <label>
-    <input class='toggle-checkbox' [checked]="isToggleThemeChecked" type='checkbox' [(ngModel)]="isToggleThemeChecked" (change)="toggleDarkTheme()"/>
+    <input class='toggle-checkbox' [checked]="isToggleThemeChecked" type='checkbox' [(ngModel)]="isToggleThemeChecked"
+      (change)="toggleDarkTheme()" />
     <div class='toggle-slot'>
       <div class='sun-icon-wrapper'>
         <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
