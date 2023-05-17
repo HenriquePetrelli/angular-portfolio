@@ -1,0 +1,26 @@
+{
+  "title": [
+    {
+    "pattern": ".{1,}",
+    "message": "Sem título no PR"
+    }
+  ],
+  "body": [
+    {
+      "pattern": ".{1,}",
+      "message": "Sem descrição no PR"
+    }
+  ],
+  "assignee.login": [
+    {
+      "pattern": ".+",
+      "message": "Necessário designar a alguém o PR"
+    }
+  ],
+  "labels.0.name": [
+    {
+      "pattern": "accessibility|chore|ci|deploy|documentation|feature|fix|hotfix|refactor|test",
+      "message": "Adicione corretamente uma label para o PR"
+    }
+  ]
+}
