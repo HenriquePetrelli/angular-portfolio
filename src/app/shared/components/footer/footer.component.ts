@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 export class FooterComponent {
   redirectToWhatsAppChatWithMessage() {
     window.open(
-      "https://wa.me/" + "41999459041" + "?text=" + encodeURIComponent("Olá Henrique, tudo bem?"), "_blank");
+      'https://wa.me/' +
+        '41999459041' +
+        '?text=' +
+        encodeURIComponent('Olá Henrique, tudo bem?'),
+      '_blank'
+    );
   }
 }

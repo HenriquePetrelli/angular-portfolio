@@ -12,7 +12,7 @@ export class NavbarComponent {
 
   constructor() {
     this.isDarkTheme = localStorage.getItem('darkTheme');
-    this.handdleAppTheme()
+    this.handdleAppTheme();
   }
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class NavbarComponent {
 
   handdleAppTheme() {
     switch (this.isDarkTheme) {
-      case null: 
+      case null:
         this.setLocalStorageDarkTheme(false);
         document.body.classList.add('light-theme');
         break;
@@ -39,7 +39,7 @@ export class NavbarComponent {
   }
 
   toggleDarkTheme() {
-    console.log(this.isToggleThemeChecked)
+    console.log(this.isToggleThemeChecked);
     if (this.isToggleThemeChecked) {
       this.setLocalStorageDarkTheme(true);
       this.setDarkTheme();
@@ -69,7 +69,9 @@ export class NavbarComponent {
 
   tabChange(tabActive: string) {
     if (this.lastTabActive !== tabActive)
-      document.getElementById(this.lastTabActive)?.classList.remove('tab-active');
+      document
+        .getElementById(this.lastTabActive)
+        ?.classList.remove('tab-active');
     this.lastTabActive = tabActive;
     document.getElementById(tabActive)?.classList.add('tab-active');
   }

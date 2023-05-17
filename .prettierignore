@@ -1,0 +1,4 @@
+src/app/**/*.module.ts
+src/app/*.module.ts
+src/app/modules/*/*.module.ts
+src/app/core
