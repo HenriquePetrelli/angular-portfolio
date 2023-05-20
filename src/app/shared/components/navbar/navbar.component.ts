@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModuleName } from './types';
+import { navbarTabs } from './data';
 
 @Component({
   selector: 'app-navbar',
@@ -6,17 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.less']
 })
 export class NavbarComponent {
-  isDarkTheme: string | null;
+  readonly ModuleName = ModuleName;
+
+  private isDarkTheme: string | null;
+  private lastTabActive = 'Home';
+
+  tabs = navbarTabs;
   isToggleThemeChecked = false;
-  lastTabActive = 'home';
 
   constructor() {
     this.isDarkTheme = localStorage.getItem('darkTheme');
     this.handdleAppTheme();
   }
 
-  ngOnInit() {
-    document.getElementById(this.lastTabActive)?.classList.add('tab-active');
+  ngAfterViewInit() {
+    const path = location.pathname.toString().substring(1);
+    this.lastTabActive = path;
+    document.getElementById(`tab-${path}`)?.classList.add('tab-active');
   }
 
   handdleAppTheme() {
@@ -39,7 +47,6 @@ export class NavbarComponent {
   }
 
   toggleDarkTheme() {
-    console.log(this.isToggleThemeChecked);
     if (this.isToggleThemeChecked) {
       this.setLocalStorageDarkTheme(true);
       this.setDarkTheme();
@@ -70,9 +77,11 @@ export class NavbarComponent {
   tabChange(tabActive: string) {
     if (this.lastTabActive !== tabActive)
       document
-        .getElementById(this.lastTabActive)
+        .getElementById(`tab-${this.lastTabActive.toLowerCase()}`)
         ?.classList.remove('tab-active');
     this.lastTabActive = tabActive;
-    document.getElementById(tabActive)?.classList.add('tab-active');
+    document
+      .getElementById(`tab-${tabActive.toLowerCase()}`)
+      ?.classList.add('tab-active');
   }
 }
