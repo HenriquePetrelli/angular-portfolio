@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from 'src/app/core/services/data.service';
+import { AboutService } from 'src/app/core/services/about/about.service';
 
 @Component({
   selector: 'app-about',
@@ -9,7 +9,7 @@ import { DataService } from 'src/app/core/services/data.service';
 export class AboutComponent {
   bio: string;
 
-  constructor(private dataService: DataService) {
-    this.bio = this.dataService.getBio();
-  } 
+  constructor(private aboutService: AboutService) {
+    this.bio = this.aboutService.getBio();
+  }
 }

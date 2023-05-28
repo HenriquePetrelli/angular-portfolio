@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { ModuleName } from './types';
-import { navbarTabs } from './data';
+import {
+  navbarEnUsTabs,
+  navbarEsTabs,
+  navbarPtBrTabs,
+  navbarTabs
+} from './data';
+import { LanguageService } from '../../services/language.service';
+import { Language } from './components/language-select/types';
 
 @Component({
   selector: 'app-navbar',
@@ -9,69 +16,26 @@ import { navbarTabs } from './data';
 })
 export class NavbarComponent {
   readonly ModuleName = ModuleName;
+  readonly language = Language;
 
-  private isDarkTheme: string | null;
   private lastTabActive = 'Home';
 
+  navbarPtBrTabs = navbarPtBrTabs;
+  navbarEnUsTabs = navbarEnUsTabs;
+  navbarEsTabs = navbarEsTabs;
   tabs = navbarTabs;
-  isToggleThemeChecked = false;
 
-  constructor() {
-    this.isDarkTheme = localStorage.getItem('darkTheme');
-    this.handdleAppTheme();
+  constructor(private languageService: LanguageService) {}
+
+  ngOnInit() {
+    console.log(this.languageService.appLanguage);
+    this.getTabLabel();
   }
 
   ngAfterViewInit() {
     const path = location.pathname.toString().substring(1);
     this.lastTabActive = path;
     document.getElementById(`tab-${path}`)?.classList.add('tab-active');
-  }
-
-  handdleAppTheme() {
-    switch (this.isDarkTheme) {
-      case null:
-        this.setLocalStorageDarkTheme(false);
-        document.body.classList.add('light-theme');
-        break;
-
-      case 'true':
-        this.isToggleThemeChecked = true;
-        document.body.classList.add('dark-theme');
-        break;
-
-      case 'false':
-        this.isToggleThemeChecked = false;
-        document.body.classList.add('light-theme');
-        break;
-    }
-  }
-
-  toggleDarkTheme() {
-    if (this.isToggleThemeChecked) {
-      this.setLocalStorageDarkTheme(true);
-      this.setDarkTheme();
-    } else {
-      this.setLocalStorageDarkTheme(false);
-      this.setLightTheme();
-    }
-  }
-
-  setLocalStorageDarkTheme(isDarkTheme: boolean) {
-    localStorage.setItem('darkTheme', String(isDarkTheme));
-  }
-
-  setDarkTheme() {
-    if (document.body.classList.contains('light-theme')) {
-      document.body.classList.remove('light-theme');
-    }
-    document.body.classList.add('dark-theme');
-  }
-
-  setLightTheme() {
-    if (document.body.classList.contains('dark-theme')) {
-      document.body.classList.remove('dark-theme');
-    }
-    document.body.classList.add('light-theme');
   }
 
   tabChange(tabActive: string) {
@@ -83,5 +47,25 @@ export class NavbarComponent {
     document
       .getElementById(`tab-${tabActive.toLowerCase()}`)
       ?.classList.add('tab-active');
+  }
+
+  getTabLabel() {
+    switch (this.languageService.appLanguage) {
+      case this.language.Portuguese:
+        this.tabs.map(tab => {
+          tab.label = navbarPtBrTabs[tab.moduleName];
+        });
+        break;
+      case this.language.English:
+        this.tabs.map(tab => {
+          tab.label = navbarEnUsTabs[tab.moduleName];
+        });
+        break;
+      case this.language.Spanish:
+        this.tabs.map(tab => {
+          tab.label = navbarEsTabs[tab.moduleName];
+        });
+        break;
+    }
   }
 }

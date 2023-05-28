@@ -17,7 +17,7 @@ export const navbarTabs = [
     moduleName: ModuleName.Experience,
     id: 'tab-experience',
     route: 'experience',
-    label: 'Experiências'
+    label: 'Experiência'
   },
   {
     moduleName: ModuleName.Skills,
@@ -44,3 +44,33 @@ export const navbarTabs = [
     label: 'Contato'
   }
 ];
+
+export const navbarPtBrTabs: { [key: string]: string } = {
+  home: 'Home',
+  about: 'Sobre',
+  experience: 'Experiência',
+  skills: 'Habilidades',
+  projects: 'Projetos',
+  education: 'Educação',
+  contact: 'Contato'
+};
+
+export const navbarEnUsTabs: { [key: string]: string } = {
+  home: 'Home',
+  about: 'About',
+  experience: 'Experience',
+  skills: 'Skills',
+  projects: 'Projects',
+  education: 'Education',
+  contact: 'Contact'
+};
+
+export const navbarEsTabs: { [key: string]: string } = {
+  home: 'Home',
+  about: 'Acerca',
+  experience: 'Experiencia',
+  skills: 'Habilidades',
+  projects: 'Proyectos',
+  education: 'Educación',
+  contact: 'Contacto'
+};

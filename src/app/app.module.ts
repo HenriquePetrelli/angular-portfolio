@@ -8,12 +8,16 @@ import { HomeModule } from './modules/home/home.module';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { LanguageSelectComponent } from './shared/components/navbar/components/language-select/language-select.component';
+import { ThemeToggleComponent } from './shared/components/navbar/components/theme-toggle/theme-toggle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    LanguageSelectComponent,
+    ThemeToggleComponent
   ],
   imports: [
     BrowserModule,
