@@ -1,0 +1,10 @@
+<div class="language-select">
+    <button class="language-select__button" (click)="onChangeLanguage()">
+        <img class="language-select__img" *ngIf="currentLanguage === language.Portuguese"
+            src="../../../../../../assets/icons/flags/brazil.svg" />
+        <img class="language-select__img" *ngIf="currentLanguage === language.English"
+            src="../../../../../../assets/icons/flags/united-states.svg" />
+        <img class="language-select__img" *ngIf="currentLanguage === language.Spanish"
+            src="../../../../../../assets/icons/flags/spain.svg" />
+    </button>
+</div>
