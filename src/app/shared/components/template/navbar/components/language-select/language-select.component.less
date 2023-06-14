@@ -1,0 +1,46 @@
+.flag-button {
+  width: 70px;
+  height: 70px;
+  perspective: 1000px;
+  margin: 0px 20px;
+}
+
+.flag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+
+  &__face {
+    width: 65px;
+    height: 65px;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+
+  &--front {
+    cursor: pointer;
+    background-image: url('../../../../../../../assets/icons/flags/brazil.svg');
+    background-size: cover;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &--back {
+    cursor: pointer;
+    background-image: url('../../../../../../../assets/icons/flags/united-states.svg');
+    background-size: cover;
+    transform: rotateY(180deg);
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.flip {
+  transform: rotateY(180deg);
+}

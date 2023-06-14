@@ -1,6 +1,6 @@
 <main class="home">
   <section>
-    <h1 class="home__title">Seja bem-vindo(a)</h1>
+    <h1 class="home__title">{{ greetText }}</h1>
     <h2>Henrique Petrelli</h2>
     <p>henriquepetrelli96@gmail.com</p>
     <p>+55 (41)99945-9041</p>
@@ -14,7 +14,8 @@
         <figcaption></figcaption>
       </figure>
       <figure>
-        <img class="home__logo" src="../../../assets/img/logo/symbol-text-white.svg">
+        <img *ngIf="isDarkModeEnable" class="home__logo" src="../../../assets/img/logo/symbol-text-white.svg">
+        <img *ngIf="!isDarkModeEnable" class="home__logo" src="../../../assets/img/logo/symbol-text-black.svg">
         <figcaption></figcaption>
       </figure>
     </article>
