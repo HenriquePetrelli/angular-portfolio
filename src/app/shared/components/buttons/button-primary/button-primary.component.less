@@ -1,0 +1,23 @@
+@import url('/src/assets/style/variables/variables.less');
+
+.button-primary {
+  width: 200px;
+  height: 50px;
+  border-radius: 8px;
+  border: 0;
+  background-color: @primary;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:not(:disabled) {
+    &:hover {
+      transform: scale(1.0175);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

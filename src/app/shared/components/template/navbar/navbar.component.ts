@@ -1,3 +1,4 @@
+import { DarkModeService } from './../../../services/dark-mode.service';
 import { Component } from '@angular/core';
 import { ModuleName } from './types';
 import {
@@ -6,7 +7,7 @@ import {
   navbarPtBrTabs,
   navbarTabs
 } from './data';
-import { LanguageService } from '../../services/language.service';
+import { LanguageService } from '../../../services/language.service';
 import { Language } from './components/language-select/types';
 
 @Component({
@@ -25,12 +26,10 @@ export class NavbarComponent {
   navbarEsTabs = navbarEsTabs;
   tabs = navbarTabs;
 
-  constructor(private languageService: LanguageService) {}
-
-  ngOnInit() {
-    console.log(this.languageService.appLanguage);
-    this.getTabLabel();
-  }
+  constructor(
+    private languageService: LanguageService,
+    private darkModeService: DarkModeService
+  ) {}
 
   ngAfterViewInit() {
     const path = location.pathname.toString().substring(1);
@@ -38,18 +37,11 @@ export class NavbarComponent {
     document.getElementById(`tab-${path}`)?.classList.add('tab-active');
   }
 
-  tabChange(tabActive: string) {
-    if (this.lastTabActive !== tabActive)
-      document
-        .getElementById(`tab-${this.lastTabActive.toLowerCase()}`)
-        ?.classList.remove('tab-active');
-    this.lastTabActive = tabActive;
-    document
-      .getElementById(`tab-${tabActive.toLowerCase()}`)
-      ?.classList.add('tab-active');
+  get darkModeEnable() {
+    return this.darkModeService.isDarkModeEnabled;
   }
 
-  getTabLabel() {
+  get getTabs() {
     switch (this.languageService.appLanguage) {
       case this.language.Portuguese:
         this.tabs.map(tab => {
@@ -61,11 +53,19 @@ export class NavbarComponent {
           tab.label = navbarEnUsTabs[tab.moduleName];
         });
         break;
-      case this.language.Spanish:
-        this.tabs.map(tab => {
-          tab.label = navbarEsTabs[tab.moduleName];
-        });
-        break;
     }
+
+    return this.tabs;
+  }
+
+  tabChange(tabActive: string) {
+    if (this.lastTabActive !== tabActive)
+      document
+        .getElementById(`tab-${this.lastTabActive.toLowerCase()}`)
+        ?.classList.remove('tab-active');
+    this.lastTabActive = tabActive;
+    document
+      .getElementById(`tab-${tabActive.toLowerCase()}`)
+      ?.classList.add('tab-active');
   }
 }

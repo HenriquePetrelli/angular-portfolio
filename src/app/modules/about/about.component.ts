@@ -7,9 +7,9 @@ import { AboutService } from 'src/app/core/services/about/about.service';
   styleUrls: ['./about.component.less']
 })
 export class AboutComponent {
-  bio: string;
+  constructor(private aboutService: AboutService) {}
 
-  constructor(private aboutService: AboutService) {
-    this.bio = this.aboutService.getBio();
+  get getBio() {
+    return this.aboutService.getBio();
   }
 }

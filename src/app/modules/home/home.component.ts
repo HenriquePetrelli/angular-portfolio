@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { AboutService } from '../../core/services/about/about.service';
+import { DarkModeService } from 'src/app/shared/services/dark-mode.service';
+import { HomeService } from 'src/app/core/services/home/home.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less']
 })
-export class HomeComponent implements OnInit {
-  bio: string;
-  projects: { name: string; description: string }[];
-  skills: string[];
+export class HomeComponent {
   age: number | undefined;
 
-  constructor(private aboutService: AboutService) {
-    this.bio = this.aboutService.getBio();
-    this.projects = this.aboutService.getProjects();
-    this.skills = this.aboutService.getSkills();
+  constructor(
+    private homeService: HomeService,
+    private darkModeService: DarkModeService
+  ) {
     this.getAge();
   }
 
-  ngOnInit() {}
+  get greetText() {
+    return this.homeService.getGreet();
+  }
 
   getAge() {
     const dateOfBirth = new Date(1996, 8, 22);
@@ -40,5 +40,9 @@ export class HomeComponent implements OnInit {
     }
 
     this.age = age;
+  }
+
+  get isDarkModeEnable() {
+    return this.darkModeService.isDarkModeEnabled;
   }
 }

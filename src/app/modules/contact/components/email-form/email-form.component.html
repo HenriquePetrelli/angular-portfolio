@@ -1,0 +1,101 @@
+<section class="email-form">
+
+    <app-toggle-switch label="Sou recrutador" [value]="isToggleRecruiter"
+        (valueChange)="toggleEmailForm($event)"></app-toggle-switch>
+
+    <div class="email-form__flip-card">
+        <div class="email-form__flip-card__content" id="flip-card">
+            <div class="email-form__flip-card__content--front">
+                <form [formGroup]="normalForm" (ngSubmit)="onSubmit()">
+
+                    <div>
+                        <input type="text" id="name" formControlName="name" placeholder="Nome">
+                        <div *ngIf="normalForm.controls.name.invalid && normalForm.controls.name.touched">
+                            Nome é obrigatório.
+                        </div>
+                    </div>
+
+                    <div>
+                        <input type="email" id="email" formControlName="email" placeholder="Email">
+                        <div *ngIf="normalForm.controls.email.invalid && normalForm.controls.email.touched">
+                            E-mail inválido.
+                        </div>
+                    </div>
+
+                    <div>
+                        <input type="text" id="ocupation" formControlName="ocupation" placeholder="Ocupação">
+                        <div *ngIf="normalForm.controls.ocupation.invalid && normalForm.controls.ocupation.touched">
+                            Nome é obrigatório.
+                        </div>
+                    </div>
+
+                    <div>
+                        <textarea id="message" formControlName="message" placeholder="Mensagem"></textarea>
+                        <div *ngIf="normalForm.controls.message.invalid && normalForm.controls.message.touched">
+                            Mensagem é obrigatória.
+                        </div>
+                    </div>
+
+                    <app-button-primary label="Enviar" (clicked)="handleClick()"
+                        [disabled]="normalForm.invalid"></app-button-primary>
+
+                </form>
+            </div>
+
+            <div class="email-form__flip-card__content--back">
+
+                <form [formGroup]="recruiterForm" (ngSubmit)="onSubmit()">
+
+                    <div>
+                        <input type="text" id="name" formControlName="name" placeholder="Nome">
+                        <div *ngIf="recruiterForm.controls.name.invalid && recruiterForm.controls.name.touched">
+                            Nome é obrigatório.
+                        </div>
+                    </div>
+
+                    <div>
+                        <input type="text" id="celNumber" formControlName="celNumber" placeholder="Celular">
+                        <div
+                            *ngIf="recruiterForm.controls.celNumber.invalid && recruiterForm.controls.celNumber.touched">
+                            Número do celular é obrigatório.
+                        </div>
+                    </div>
+
+                    <div>
+                        <input type="email" id="email" formControlName="email" placeholder="Email">
+                        <div *ngIf="recruiterForm.controls.email.invalid && recruiterForm.controls.email.touched">
+                            E-mail inválido.
+                        </div>
+                    </div>
+
+                    <div>
+                        <input type="text" id="company" formControlName="company" placeholder="Nome da empresa">
+                        <div *ngIf="recruiterForm.controls.company.invalid && recruiterForm.controls.company.touched">
+                            Nome da empresa é obrigatório.
+                        </div>
+                    </div>
+
+                    <div>
+                        <input type="text" id="companyWebsite" formControlName="companyWebsite"
+                            placeholder="Site da empresa">
+                        <div
+                            *ngIf="recruiterForm.controls.companyWebsite.invalid && recruiterForm.controls.companyWebsite.touched">
+                            Site da empresa é obrigatório.
+                        </div>
+                    </div>
+
+                    <div>
+                        <textarea id="message" formControlName="message" placeholder="Mensagem"></textarea>
+                        <div *ngIf="recruiterForm.controls.message.invalid && recruiterForm.controls.message.touched">
+                            Mensagem é obrigatória.
+                        </div>
+                    </div>
+
+                    <app-button-primary label="Enviar" (clicked)="handleClick()"
+                        [disabled]="normalForm.invalid"></app-button-primary>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

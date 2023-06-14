@@ -1,7 +1,10 @@
 <nav id="navbar">
-  <img src="../../../../assets/img/logo/symbol-black.svg" class="logo-img" />
+
+  <img *ngIf="!darkModeEnable" src="../../../../assets/img/logo/symbol-black.svg" class="logo-img" />
+  <img *ngIf="darkModeEnable" src="../../../../assets/img/logo/symbol-white.svg" class="logo-img" />
+
   <ul>
-    <li *ngFor="let tab of tabs; index as i">
+    <li *ngFor="let tab of getTabs; index as i">
       <a [tabindex]="i + 1" (click)="tabChange(tab.moduleName)" [id]="tab.id" [routerLink]="tab.route">{{tab.label}}</a>
     </li>
   </ul>
