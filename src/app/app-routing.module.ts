@@ -29,11 +29,6 @@ const routes: Routes = [
       import('./modules/projects/projects.module').then((m) => m.ProjectsModule),
   },
   {
-    path: 'education',
-    loadChildren: () =>
-      import('./modules/education/education.module').then((m) => m.EducationModule),
-  },
-  {
     path: 'contact',
     loadChildren: () =>
       import('./modules/contact/contact.module').then((m) => m.ContactModule),

@@ -32,12 +32,6 @@ export const navbarTabs = [
     label: 'Projetos'
   },
   {
-    moduleName: ModuleName.Education,
-    id: 'tab-education',
-    route: 'education',
-    label: 'Educação'
-  },
-  {
     moduleName: ModuleName.Contact,
     id: 'tab-contact',
     route: 'contact',
@@ -51,7 +45,6 @@ export const navbarPtBrTabs: { [key: string]: string } = {
   experience: 'Experiência',
   skills: 'Habilidades',
   projects: 'Projetos',
-  education: 'Educação',
   contact: 'Contato'
 };
 
@@ -61,16 +54,5 @@ export const navbarEnUsTabs: { [key: string]: string } = {
   experience: 'Experience',
   skills: 'Skills',
   projects: 'Projects',
-  education: 'Education',
   contact: 'Contact'
-};
-
-export const navbarEsTabs: { [key: string]: string } = {
-  home: 'Home',
-  about: 'Acerca',
-  experience: 'Experiencia',
-  skills: 'Habilidades',
-  projects: 'Proyectos',
-  education: 'Educación',
-  contact: 'Contacto'
 };

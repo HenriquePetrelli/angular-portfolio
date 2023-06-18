@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProgressBarColors } from 'src/app/shared/components/progress/progress-bar/types';
 
 @Component({
   selector: 'app-skills',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./skills.component.less']
 })
 export class SkillsComponent {
-
+  readonly progressBarColors = ProgressBarColors;
 }

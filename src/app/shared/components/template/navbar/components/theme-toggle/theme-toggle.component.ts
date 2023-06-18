@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DarkModeService } from '../../../../../services/dark-mode.service';
+import { StorageKeys } from 'src/app/shared/services/local-storage';
 
 @Component({
   selector: 'app-theme-toggle',
@@ -11,25 +12,25 @@ export class ThemeToggleComponent {
   isToggleThemeChecked = false;
 
   constructor(private darkModeService: DarkModeService) {
-    this.isDarkTheme = localStorage.getItem('dark-theme');
+    this.isDarkTheme = localStorage.getItem(StorageKeys.appTheme);
     this.handdleAppTheme();
   }
 
   handdleAppTheme() {
     switch (this.isDarkTheme) {
       case null:
-        this.setLocalStorageDarkTheme(false);
+        this.setLocalStorageDarkTheme('light');
         document.body.classList.add('light-theme');
         this.darkModeService.isDarkModeEnabled = false;
         break;
 
-      case 'true':
+      case 'dark':
         this.isToggleThemeChecked = true;
         document.body.classList.add('dark-theme');
         this.darkModeService.isDarkModeEnabled = true;
         break;
 
-      case 'false':
+      case 'light':
         this.isToggleThemeChecked = false;
         document.body.classList.add('light-theme');
         this.darkModeService.isDarkModeEnabled = false;
@@ -39,16 +40,16 @@ export class ThemeToggleComponent {
 
   toggleAppTheme() {
     if (this.isToggleThemeChecked) {
-      this.setLocalStorageDarkTheme(true);
+      this.setLocalStorageDarkTheme('dark');
       this.setDarkTheme();
     } else {
-      this.setLocalStorageDarkTheme(false);
+      this.setLocalStorageDarkTheme('light');
       this.setLightTheme();
     }
   }
 
-  setLocalStorageDarkTheme(isDarkTheme: boolean) {
-    localStorage.setItem('dark-theme', String(isDarkTheme));
+  setLocalStorageDarkTheme(appTheme: string) {
+    localStorage.setItem(StorageKeys.appTheme, appTheme);
   }
 
   setDarkTheme() {
