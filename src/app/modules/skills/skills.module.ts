@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SkillsComponent } from './skills.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ProgressBarComponent } from 'src/app/shared/components/progress/progress-bar/progress-bar.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [SkillsComponent, ProgressBarComponent],
   imports: [RouterModule.forChild(routes)],
 })
 export class SkillsModule { }

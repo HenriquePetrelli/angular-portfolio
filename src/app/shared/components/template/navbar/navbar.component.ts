@@ -1,12 +1,7 @@
 import { DarkModeService } from './../../../services/dark-mode.service';
 import { Component } from '@angular/core';
 import { ModuleName } from './types';
-import {
-  navbarEnUsTabs,
-  navbarEsTabs,
-  navbarPtBrTabs,
-  navbarTabs
-} from './data';
+import { navbarEnUsTabs, navbarPtBrTabs, navbarTabs } from './data';
 import { LanguageService } from '../../../services/language.service';
 import { Language } from './components/language-select/types';
 
@@ -23,7 +18,6 @@ export class NavbarComponent {
 
   navbarPtBrTabs = navbarPtBrTabs;
   navbarEnUsTabs = navbarEnUsTabs;
-  navbarEsTabs = navbarEsTabs;
   tabs = navbarTabs;
 
   constructor(

@@ -4,6 +4,5 @@ export enum ModuleName {
   Experience = 'experience',
   Skills = 'skills',
   Projects = 'projects',
-  Education = 'education',
   Contact = 'contact'
 }

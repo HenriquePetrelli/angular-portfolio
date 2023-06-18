@@ -2,6 +2,7 @@ import { AboutService } from 'src/app/core/services/about/about.service';
 import { Component } from '@angular/core';
 import { LanguageService } from '../../../../../services/language.service';
 import { Language } from './types';
+import { StorageKeys } from 'src/app/shared/services/local-storage';
 
 @Component({
   selector: 'app-language-select',
@@ -16,13 +17,13 @@ export class LanguageSelectComponent {
     private languageService: LanguageService,
     private aboutService: AboutService
   ) {
-    const localStorageLanguage = localStorage.getItem('app-language');
+    const localStorageLanguage = localStorage.getItem(StorageKeys.appLanguage);
     if (localStorageLanguage) {
       this.currentLanguage = localStorageLanguage;
-      localStorage.setItem('app-language', localStorageLanguage);
+      localStorage.setItem(StorageKeys.appLanguage, localStorageLanguage);
       this.setLanguageGlobally(localStorageLanguage);
     } else {
-      localStorage.setItem('app-language', this.language.Portuguese);
+      localStorage.setItem(StorageKeys.appLanguage, this.language.Portuguese);
       this.setLanguageGlobally(this.language.Portuguese);
       this.currentLanguage = this.language.Portuguese;
     }
@@ -40,7 +41,7 @@ export class LanguageSelectComponent {
 
   checkSelectedLanguage() {
     const flag = document.getElementById('flag');
-    const selectedLanguage = localStorage.getItem('app-language');
+    const selectedLanguage = localStorage.getItem(StorageKeys.appLanguage);
 
     if (selectedLanguage === this.language.English) {
       this.currentLanguage = this.language.English;
@@ -65,17 +66,11 @@ export class LanguageSelectComponent {
         this.currentLanguage = this.language.Portuguese;
         this.aboutService.getBio();
         break;
-      // case this.language.Spanish:
-      //   this.setLocalStorageLanguage(this.language.Portuguese);
-      //   this.setLanguageGlobally(this.language.Portuguese);
-      //   this.currentLanguage = this.language.Portuguese;
-      //   break;
     }
-    // location.reload();
   }
 
   setLocalStorageLanguage(language: string) {
-    localStorage.setItem('app-language', language);
+    localStorage.setItem(StorageKeys.appLanguage, language);
   }
 
   setLanguageGlobally(language: string) {

@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="progress">
+        <div class="progress-bar" [id]="getProgressElementId('progress-bar')">
+            <div class="label-slot" [id]="getProgressElementId('label-slot')">
+                <span>{{label}}</span>
+            </div>
+        </div>
+        <div class="legend-slot">
+            <span [id]="getProgressElementId('legend')">{{progress}}%</span>
+        </div>
+    </div>
+</div>
