@@ -5,6 +5,7 @@ import { EmailFormComponent } from './components/email-form/email-form.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonPrimaryComponent } from 'src/app/shared/components';
 import { ToggleSwitchComponent } from 'src/app/shared/components/buttons/toggle-switch/toggle-switch.component';
+import { SendEmailButtonComponent } from './components/send-email-button/send-email-button.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
     ContactComponent,
     EmailFormComponent,
     ButtonPrimaryComponent,
-    ToggleSwitchComponent
+    ToggleSwitchComponent,
+    SendEmailButtonComponent
   ],
   imports: [FormsModule, ReactiveFormsModule, RouterModule.forChild(routes)],
 })
