@@ -1,11 +1,13 @@
 <main class="home">
   <section>
-    <h1 class="home__title">{{ greetText }}</h1>
-    <h2>Henrique Petrelli</h2>
-    <p>henriquepetrelli96@gmail.com</p>
-    <p>+55 (41)99945-9041</p>
-    <p>Curitiba,Paraná - Brasil</p>
-    <p>{{ age }}</p>
+    <h1 class="home__title">{{ homeModuleTexts.greet }}</h1>
+    <p class="home__description"> {{ homeModuleTexts.description }} </p>
+    <div class="home__buttons-container">
+      <app-button-primary [label]="homeModuleTexts.aboutButtonLabel"
+        (clicked)="openPage(ModuleName.About)"></app-button-primary>
+      <app-button-secondary class="home__buttons-container__button-secondary"
+        [label]="homeModuleTexts.contactButtonLabel" (clicked)="openPage(ModuleName.Contact)"></app-button-secondary>
+    </div>
   </section>
   <section>
     <article>

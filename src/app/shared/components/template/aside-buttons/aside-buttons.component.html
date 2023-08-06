@@ -1,0 +1,10 @@
+<div class="aside-bar">
+  <div class="toolbar">
+    <ul>
+      <li *ngFor="let button of toolbarButtons; index as i">
+        <button aria-label="button.label" (click)="onClickOpenPage(button.label)"><img
+            [src]="button.iconPath" /></button>
+      </li>
+    </ul>
+  </div>
+</div>

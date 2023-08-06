@@ -3,7 +3,6 @@ import { ContactComponent } from './contact.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EmailFormComponent } from './components/email-form/email-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ButtonPrimaryComponent } from 'src/app/shared/components';
 import { ToggleSwitchComponent } from 'src/app/shared/components/buttons/toggle-switch/toggle-switch.component';
 import { SendEmailButtonComponent } from './components/send-email-button/send-email-button.component';
 
@@ -18,7 +17,6 @@ const routes: Routes = [
   declarations: [
     ContactComponent,
     EmailFormComponent,
-    ButtonPrimaryComponent,
     ToggleSwitchComponent,
     SendEmailButtonComponent
   ],

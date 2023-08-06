@@ -1,6 +1,6 @@
 <section class="email-form">
 
-    <app-toggle-switch label="Sou recrutador" [value]="isToggleRecruiter"
+    <app-toggle-switch [label]="emailFormTexts.recruiter" [value]="isToggleRecruiter"
         (valueChange)="toggleEmailForm($event)"></app-toggle-switch>
 
     <div class="email-form__flip-card">
@@ -9,36 +9,37 @@
                 <form [formGroup]="normalForm" (ngSubmit)="onSubmit()">
 
                     <div>
-                        <input type="text" id="name" formControlName="name" placeholder="Nome">
+                        <input type="text" id="name" formControlName="name" [placeholder]="emailFormTexts.name">
                         <div *ngIf="normalForm.controls.name.invalid && normalForm.controls.name.touched">
                             Nome é obrigatório.
                         </div>
                     </div>
 
                     <div>
-                        <input type="email" id="email" formControlName="email" placeholder="Email">
+                        <input type="email" id="email" formControlName="email" [placeholder]="emailFormTexts.email">
                         <div *ngIf="normalForm.controls.email.invalid && normalForm.controls.email.touched">
                             E-mail inválido.
                         </div>
                     </div>
 
                     <div>
-                        <input type="text" id="ocupation" formControlName="ocupation" placeholder="Ocupação">
+                        <input type="text" id="ocupation" formControlName="ocupation"
+                            [placeholder]="emailFormTexts.ocupation">
                         <div *ngIf="normalForm.controls.ocupation.invalid && normalForm.controls.ocupation.touched">
                             Nome é obrigatório.
                         </div>
                     </div>
 
                     <div>
-                        <textarea id="message" formControlName="message" placeholder="Mensagem"></textarea>
+                        <textarea id="message" formControlName="message"
+                            [placeholder]="emailFormTexts.message"></textarea>
                         <div *ngIf="normalForm.controls.message.invalid && normalForm.controls.message.touched">
                             Mensagem é obrigatória.
                         </div>
                     </div>
 
-                    <app-send-email-button (clicked)="handleClick()"
+                    <app-send-email-button (clicked)="handleClick()" label="emailFormTexts.buttonLabel"
                         [disabled]="normalForm.invalid"></app-send-email-button>
-
                 </form>
             </div>
 
@@ -47,14 +48,15 @@
                 <form [formGroup]="recruiterForm" (ngSubmit)="onSubmit()">
 
                     <div>
-                        <input type="text" id="name" formControlName="name" placeholder="Nome">
+                        <input type="text" id="name" formControlName="name" [placeholder]="emailFormTexts.name">
                         <div *ngIf="recruiterForm.controls.name.invalid && recruiterForm.controls.name.touched">
                             Nome é obrigatório.
                         </div>
                     </div>
 
                     <div>
-                        <input type="text" id="celNumber" formControlName="celNumber" placeholder="Celular">
+                        <input type="text" id="celNumber" formControlName="celNumber"
+                            [placeholder]="emailFormTexts.celphone">
                         <div
                             *ngIf="recruiterForm.controls.celNumber.invalid && recruiterForm.controls.celNumber.touched">
                             Número do celular é obrigatório.
@@ -62,14 +64,15 @@
                     </div>
 
                     <div>
-                        <input type="email" id="email" formControlName="email" placeholder="Email">
+                        <input type="email" id="email" formControlName="email" [placeholder]="emailFormTexts.email">
                         <div *ngIf="recruiterForm.controls.email.invalid && recruiterForm.controls.email.touched">
                             E-mail inválido.
                         </div>
                     </div>
 
                     <div>
-                        <input type="text" id="company" formControlName="company" placeholder="Nome da empresa">
+                        <input type="text" id="company" formControlName="company"
+                            [placeholder]="emailFormTexts.companyName">
                         <div *ngIf="recruiterForm.controls.company.invalid && recruiterForm.controls.company.touched">
                             Nome da empresa é obrigatório.
                         </div>
@@ -77,7 +80,7 @@
 
                     <div>
                         <input type="text" id="companyWebsite" formControlName="companyWebsite"
-                            placeholder="Site da empresa">
+                            [placeholder]="emailFormTexts.companyWebsite">
                         <div
                             *ngIf="recruiterForm.controls.companyWebsite.invalid && recruiterForm.controls.companyWebsite.touched">
                             Site da empresa é obrigatório.
@@ -85,14 +88,15 @@
                     </div>
 
                     <div>
-                        <textarea id="message" formControlName="message" placeholder="Mensagem"></textarea>
+                        <textarea id="message" formControlName="message"
+                            [placeholder]="emailFormTexts.message"></textarea>
                         <div *ngIf="recruiterForm.controls.message.invalid && recruiterForm.controls.message.touched">
                             Mensagem é obrigatória.
                         </div>
                     </div>
 
-                    <app-button-primary label="Enviar" (clicked)="handleClick()"
-                        [disabled]="normalForm.invalid"></app-button-primary>
+                    <app-send-email-button [label]="emailFormTexts.buttonLabel" (clicked)="handleClick()"
+                        [disabled]="normalForm.invalid"></app-send-email-button>
 
                 </form>
             </div>

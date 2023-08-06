@@ -1,0 +1,60 @@
+<ul class="time-line">
+    <li i *ngFor="let item of homeModuleTexts">
+
+        <div class="time-line__item time-line__header">
+            <div class="time-line__item--left-content">
+                <img class="time-line__item--left-content--logo" [src]="item.logo">
+            </div>
+            <div class="time-line__header--not-line"></div>
+            <div class="time-line__item--info">
+                <div class="time-line__item--info--title">
+                    <h2>{{ item.title }}</h2>
+                    <span class="time-line__item--info--title--period">
+                        {{ companyPeriodFormatted(item.startDate,item.endDate) }}
+                    </span>
+                </div>
+                <div class="time-line__item--info--subtitle">
+                    <h3>{{item.location}}</h3>
+                    <h3>{{item.model}}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="time-line__item">
+            <div class="time-line__item--left-content">
+                <span class=" time-line__item--left-content--is-current" *ngIf="item.isCurrent">{{item.current}}</span>
+            </div>
+            <div *ngIf="!item.isCurrent" class="time-line__item--not-marker"></div>
+            <div *ngIf="item.isCurrent" class="time-line__item--marker">
+                <div class="time-line__item--marker--current"></div>
+            </div>
+            <div class="time-line__item--right-content">
+                <h3>{{item.description}}</h3>
+            </div>
+        </div>
+
+        <div class="time-line__item" *ngFor="let subitem of item.subItems">
+            <div class="time-line__item--left-content">
+                <span>{{subitem.date}}</span>
+            </div>
+            <div class="time-line__item--marker">
+            </div>
+            <div class="time-line__item--right-content">
+                <h3>{{subitem.title}}</h3>
+            </div>
+        </div>
+
+        <div class="time-line__item">
+            <div class="time-line__item--left-content">
+            </div>
+            <div class="time-line__item--not-marker">
+            </div>
+            <div class="time-line__item--right-content">
+                <app-button-primary label="Ver Detalhes" (clicked)="openDetail(item)"></app-button-primary>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<app-experience-detail-modal *ngIf="isOpenDetailModal" [isOpenDetail]="isOpenDetailModal" [details]="itemDetail"
+    (closeDetail)="closeDetailModal()"></app-experience-detail-modal>

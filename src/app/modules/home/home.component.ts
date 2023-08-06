@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DarkModeService } from 'src/app/shared/services/dark-mode.service';
 import { HomeService } from 'src/app/core/services/home/home.service';
+import { Router } from '@angular/router';
+import { ModuleName } from 'src/app/shared/components/template/navbar/types';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +11,18 @@ import { HomeService } from 'src/app/core/services/home/home.service';
 })
 export class HomeComponent {
   age: number | undefined;
+  readonly ModuleName = ModuleName;
 
   constructor(
     private homeService: HomeService,
-    private darkModeService: DarkModeService
+    private darkModeService: DarkModeService,
+    private router: Router
   ) {
     this.getAge();
   }
 
-  get greetText() {
-    return this.homeService.getGreet();
+  get homeModuleTexts() {
+    return this.homeService.getHomeModuleTexts();
   }
 
   getAge() {
@@ -44,5 +48,9 @@ export class HomeComponent {
 
   get isDarkModeEnable() {
     return this.darkModeService.isDarkModeEnabled;
+  }
+
+  openPage(moduleName: string) {
+    this.router.navigate([moduleName]);
   }
 }

@@ -33,6 +33,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/contact/contact.module').then((m) => m.ContactModule),
   },
+  // { path: '**', component: PageNotFoundComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

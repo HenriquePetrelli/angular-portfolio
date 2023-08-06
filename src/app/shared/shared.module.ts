@@ -1,0 +1,12 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ButtonPrimaryComponent } from './components/buttons/button-primary/button-primary.component';
+import { ButtonSecondaryComponent } from './components/buttons/button-secondary/button-secondary.component';
+import { GalleryHoverComponent } from './components/image-exibition/gallery-hover/gallery-hover.component';
+
+@NgModule({
+    declarations: [ButtonPrimaryComponent, ButtonSecondaryComponent, GalleryHoverComponent],
+  imports: [CommonModule],
+  exports: [ButtonPrimaryComponent, ButtonSecondaryComponent, GalleryHoverComponent], 
+})
+export class SharedModule {}

@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@600&display=swap');
 
-h1 {
-  font-family: 'Jura', sans-serif;
-}
-
 .home {
   display: flex;
   flex-direction: row;
@@ -13,7 +9,23 @@ h1 {
   margin: 0px 175px;
 
   &__title {
-    font-size: 4rem;
+    font-size: 5rem;
+    white-space: nowrap;
+  }
+
+  &__description {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    line-height: 25px;
+    margin: 20px 0;
+    white-space: normal;
+  }
+
+  &__buttons-container {
+    display: flex;
+    &__button-secondary {
+      margin-left: 10px;
+    }
   }
 
   &__photo {
@@ -24,4 +36,8 @@ h1 {
     height: 300px;
     margin-top: -90px;
   }
+}
+
+h1 {
+  font-family: 'Jura', sans-serif;
 }

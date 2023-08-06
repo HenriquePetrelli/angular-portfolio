@@ -1,0 +1,10 @@
+<div id="modal" class="modal" [ngClass]="{'active': isOpen}" (click)="closeModal()">
+    <div id="content" class="modal-content" [ngClass]="{'content-active': isOpen}" (click)="$event.stopPropagation()">
+        <app-close-button class="modal-close" (click)="closeModal()"></app-close-button>
+        <header class="modal-content__header">
+            <h3>{{ title }}</h3>
+        </header>
+        <ng-content></ng-content>
+
+    </div>
+</div>

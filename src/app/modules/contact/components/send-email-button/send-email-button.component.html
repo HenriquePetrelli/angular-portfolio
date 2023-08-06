@@ -1,10 +1,10 @@
 <button class="button button-primary" (click)="onClick()" [disabled]="disabled">
-    <span class="default">Enviar email</span>
+    <span class="default">{{emailFormTexts.sendEmail}}</span>
     <span class="success">
         <svg viewBox="0 0 16 16">
             <polyline points="3.75 9 7 12 13 5" />
         </svg>
-        Email enviado!
+        {{emailFormTexts.emailSent}}
     </span>
     <svg class="trails" viewBox="0 0 33 64">
         <path d="M26,4 C28,13.3333333 29,22.6666667 29,32 C29,41.3333333 28,50.6666667 26,60" />

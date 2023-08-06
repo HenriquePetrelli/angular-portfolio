@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./projects.component.less']
 })
 export class ProjectsComponent {
-
+  galleryImages = [
+    '../../../assets/img/fast_medic.jpeg',
+    '../../../assets/img/fast_medic.jpeg',
+    '../../../assets/img/fast_medic.jpeg',
+    '../../../assets/img/fast_medic.jpeg'
+  ];
 }

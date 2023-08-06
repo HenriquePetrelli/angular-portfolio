@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { greet } from './data';
+import { aboutButtonLabel, contactButtonLabel, description, greet } from './data';
 import { languageStringToEnum } from 'src/app/shared/helper/language';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { Language } from 'src/app/shared/components/template/navbar/components/language-select/types';
@@ -12,8 +12,12 @@ export class HomeService {
 
   constructor(private languageService: LanguageService) {}
 
-  getGreet() {
+  getHomeModuleTexts() {
     const language = this.languageService.appLanguage || this.language.Portuguese;
-    return greet[languageStringToEnum(language)];
+    return { 
+      greet: greet[languageStringToEnum(language)],
+      description: description[languageStringToEnum(language)],
+      aboutButtonLabel: aboutButtonLabel[languageStringToEnum(language)],
+      contactButtonLabel: contactButtonLabel[languageStringToEnum(language)]};
   }
 }

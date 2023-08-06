@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { Language } from 'src/app/shared/components/template/navbar/components/language-select/types';
-import { LanguageService } from 'src/app/shared/services/language.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from 'src/app/core/services/contact/contact.service';
 
 @Component({
   selector: 'app-email-form',
@@ -17,8 +17,8 @@ export class EmailFormComponent {
   isToggleRecruiter = false;
 
   constructor(
-    private languageService: LanguageService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private contactService: ContactService
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +36,10 @@ export class EmailFormComponent {
       ocupation: ['', Validators.required],
       message: ['', Validators.required]
     });
+  }
+
+  get emailFormTexts() {
+    return this.contactService.getEmailFormTexts();
   }
 
   handleClick(): void {

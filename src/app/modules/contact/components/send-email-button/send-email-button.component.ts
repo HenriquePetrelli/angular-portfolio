@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { gsap } from 'gsap';
+import { ContactService } from 'src/app/core/services/contact/contact.service';
 
 @Component({
   selector: 'app-send-email-button',
@@ -10,6 +11,8 @@ export class SendEmailButtonComponent {
   @Input() disabled: boolean = false;
   @Input() label: string = '';
   @Output() clicked: EventEmitter<void> = new EventEmitter<void>();
+
+  constructor(private contactService: ContactService) {}
 
   ngOnInit() {
     document.querySelectorAll('.button').forEach(button => {
@@ -146,6 +149,10 @@ export class SendEmailButtonComponent {
         }
       });
     });
+  }
+
+  get emailFormTexts() {
+    return this.contactService.getButtonText();
   }
 
   onClick(): void {

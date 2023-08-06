@@ -1,17 +1,20 @@
-// import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home.component';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
 
-const routes: Routes = [
-  {path: '', component: HomeComponent}
+const rotas: Routes = [
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({ 
-  imports: [RouterModule.forChild(routes), CommonModule],
-  exports: [RouterModule],
+  imports: [
+    RouterModule.forChild(rotas),
+    CommonModule,
+    SharedModule
+  ],
   declarations: [
     HomeComponent,
   ]
