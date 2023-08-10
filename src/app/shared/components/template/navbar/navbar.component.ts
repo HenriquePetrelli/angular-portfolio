@@ -1,9 +1,10 @@
 import { DarkModeService } from './../../../services/dark-mode.service';
 import { Component } from '@angular/core';
-import { ModuleName } from './types';
+import { ModuleName, ModuleTranslateAnimationDistance } from './types';
 import { navbarEnUsTabs, navbarPtBrTabs, navbarTabs } from './data';
 import { LanguageService } from '../../../services/language.service';
 import { Language } from './components/language-select/types';
+import { StorageKeys } from 'src/app/shared/services/local-storage';
 
 @Component({
   selector: 'app-navbar',
@@ -12,54 +13,53 @@ import { Language } from './components/language-select/types';
 })
 export class NavbarComponent {
   readonly ModuleName = ModuleName;
-  readonly language = Language;
+  readonly Language = Language;
 
-  private lastTabActive = 'Home';
-
+  tabs = navbarTabs;
   navbarPtBrTabs = navbarPtBrTabs;
   navbarEnUsTabs = navbarEnUsTabs;
-  tabs = navbarTabs;
 
   constructor(
     private languageService: LanguageService,
     private darkModeService: DarkModeService
   ) {}
 
-  ngAfterViewInit() {
-    const path = location.pathname.toString().substring(1);
-    this.lastTabActive = path;
-    document.getElementById(`tab-${path}`)?.classList.add('tab-active');
+  ngOnInit() {
+    this.restoreLastTabAnimation();
   }
 
-  get darkModeEnable() {
+  get isDarkModeEnabled() {
     return this.darkModeService.isDarkModeEnabled;
   }
 
   get getTabs() {
-    switch (this.languageService.appLanguage) {
-      case this.language.Portuguese:
-        this.tabs.map(tab => {
-          tab.label = navbarPtBrTabs[tab.moduleName];
-        });
-        break;
-      case this.language.English:
-        this.tabs.map(tab => {
-          tab.label = navbarEnUsTabs[tab.moduleName];
-        });
-        break;
-    }
-
-    return this.tabs;
+    const tabs = this.tabs.map(tab => {
+      tab.label =
+        this.languageService.appLanguage === this.Language.Portuguese
+          ? navbarPtBrTabs[tab.moduleName]
+          : navbarEnUsTabs[tab.moduleName];
+      return tab;
+    });
+    return tabs;
   }
 
-  tabChange(tabActive: string) {
-    if (this.lastTabActive !== tabActive)
-      document
-        .getElementById(`tab-${this.lastTabActive.toLowerCase()}`)
-        ?.classList.remove('tab-active');
-    this.lastTabActive = tabActive;
-    document
-      .getElementById(`tab-${tabActive.toLowerCase()}`)
-      ?.classList.add('tab-active');
+  restoreLastTabAnimation() {
+    const lastTab = localStorage.getItem(StorageKeys.lastTabActive);
+    if (lastTab) {
+      this.translateAnimation(lastTab);
+    }
+  }
+
+  tabChangeAnimation(tabActive: string) {
+    localStorage.setItem(StorageKeys.lastTabActive, tabActive);
+    this.translateAnimation(tabActive);
+  }
+
+  translateAnimation(tabActive: string) {
+    const activeBars = document.getElementsByClassName('active');
+    if (activeBars.length > 0) {
+      const activeBarElement = activeBars[0] as HTMLElement;
+      activeBarElement.style.transform = `translateX(${ModuleTranslateAnimationDistance[tabActive]}rem)`;
+    }
   }
 }

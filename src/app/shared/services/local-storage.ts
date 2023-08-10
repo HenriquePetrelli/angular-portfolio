@@ -1,4 +1,5 @@
 export enum StorageKeys {
   appLanguage = 'app-language',
-  appTheme = 'app-theme'
+  appTheme = 'app-theme',
+  lastTabActive = 'last-tab-active'
 }

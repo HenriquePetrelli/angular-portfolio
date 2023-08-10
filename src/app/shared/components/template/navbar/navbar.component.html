@@ -1,12 +1,14 @@
-<nav id="navbar">
+<nav id="navbar" class="navbar">
 
-  <img *ngIf="!darkModeEnable" src="../../../../assets/img/logo/symbol-black.svg" class="logo-img" />
-  <img *ngIf="darkModeEnable" src="../../../../assets/img/logo/symbol-white.svg" class="logo-img" />
+  <img *ngIf="!isDarkModeEnabled" src="../../../../assets/img/logo/symbol-black.svg" class="logo-img" />
+  <img *ngIf="isDarkModeEnabled" src="../../../../assets/img/logo/symbol-white.svg" class="logo-img" />
 
-  <ul>
-    <li *ngFor="let tab of getTabs; index as i">
-      <a [tabindex]="i + 1" (click)="tabChange(tab.moduleName)" [id]="tab.id" [routerLink]="tab.route">{{tab.label}}</a>
+  <ul class="nav-list">
+    <li class="nav-item" *ngFor="let tab of getTabs; index as i">
+      <a class="nav-link" [tabindex]="i + 1" (click)="tabChangeAnimation(tab.moduleName)" [id]="tab.id"
+        [routerLink]="[tab.moduleName]" [routerLink]="tab.route">{{tab.label}}</a>
     </li>
+    <div id="active" class="active" routerLinkActive="active"></div>
   </ul>
 
   <app-language-select></app-language-select>

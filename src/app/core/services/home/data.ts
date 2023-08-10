@@ -9,8 +9,8 @@ export const description: { [key: string]: string } = {
 }
 
 export const aboutButtonLabel: { [key: string]: string } = {
-    ptBR: "Ler mais sobre",
-    enUS: "Read more about",
+    ptBR: "Baixar currículo",
+    enUS: "Download resume",
 }
 
 export const contactButtonLabel: { [key: string]: string } = {

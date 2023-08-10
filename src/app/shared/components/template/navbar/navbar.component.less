@@ -1,7 +1,7 @@
 @import url('/src/assets/style/variables/variables.less');
 
 #navbar {
-  width: 97.5%;
+  width: 100%;
   position: fixed;
   top: 0;
   padding: 0 @spacing-m;
@@ -12,14 +12,6 @@
   align-items: center;
   z-index: 9999;
 }
-
-ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 li {
   list-style: none;
 }
@@ -37,17 +29,6 @@ a :focus-visible {
   border: 0;
 }
 
-li :hover {
-  border-bottom: @size-border-x500 solid @primary;
-  outline: 0;
-  border-radius: 0;
-}
-
-.tab-active {
-  border-bottom: @size-border-x500 solid @primary;
-  border-radius: 0;
-}
-
 a {
   color: @text-color;
   padding: 24.5px @spacing-xm;
@@ -59,4 +40,56 @@ a {
   height: 100px;
   margin-top: -10px;
   margin-left: -20px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1.5rem;
+}
+
+.nav-list {
+  position: relative;
+  display: flex;
+  list-style: none;
+}
+
+.nav-item {
+  min-width: 10rem;
+  text-align: center;
+  padding-block: 1rem;
+}
+
+.active {
+  position: absolute;
+  bottom: -0.8rem;
+  height: 2px;
+  width: 10rem;
+  transition: transform 0.25s;
+  background-color: @primary;
+}
+
+.nav-item:nth-child(1):hover ~ .active {
+  transform: translateX(0rem) !important;
+}
+
+.nav-item:nth-child(2):hover ~ .active {
+  transform: translateX(10rem) !important;
+}
+
+.nav-item:nth-child(3):hover ~ .active {
+  transform: translateX(20rem) !important;
+}
+
+.nav-item:nth-child(4):hover ~ .active {
+  transform: translateX(30rem) !important;
+}
+
+.nav-item:nth-child(5):hover ~ .active {
+  transform: translateX(40rem) !important;
+}
+
+.nav-item:nth-child(6):hover ~ .active {
+  transform: translateX(50rem) !important;
 }
