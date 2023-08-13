@@ -1,4 +1,3 @@
-import { GalleryHoverComponent } from './../../shared/components/image-exibition/gallery-hover/gallery-hover.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProjectsComponent } from './projects.component';

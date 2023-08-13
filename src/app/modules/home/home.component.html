@@ -1,6 +1,11 @@
 <main class="home">
   <section>
-    <h1 class="home__title">{{ homeModuleTexts.greet }}</h1>
+    <div class="home__introdution">
+      <h2>{{ homeModuleTexts.greet }},</h2>
+      <h2 class="home__introdution--primary-color">{{ homeModuleTexts.introdution }}</h2>
+    </div>
+    <h1 class="home__name">Henrique Petrelli</h1>
+    <h2>{{ homeModuleTexts.ocupation }}</h2>
     <p class="home__description"> {{ homeModuleTexts.description }} </p>
     <div class="home__buttons-container">
       <app-button-primary [label]="homeModuleTexts.aboutButtonLabel"
@@ -8,16 +13,21 @@
       <app-button-secondary class="home__buttons-container__button-secondary"
         [label]="homeModuleTexts.contactButtonLabel" (clicked)="openPage(ModuleName.Contact)"></app-button-secondary>
     </div>
+    <div class="home__icon-buttons-container">
+      <app-button-icon class="home__icon-buttons-container__icon-button"
+        iconPath="../../../assets/icons/whatsApp/whatsapp.svg" (clicked)="openPage(ModuleName.About)"></app-button-icon>
+      <app-button-icon class="home__icon-buttons-container__icon-button"
+        iconPath="../../../assets/icons/linkedin/linkedin.svg" (clicked)="openPage(ModuleName.About)"></app-button-icon>
+      <app-button-icon class="home__icon-buttons-container__icon-button"
+        iconPath="../../../assets/icons/github/github.svg" (clicked)="openPage(ModuleName.About)"></app-button-icon>
+      <app-button-icon class="home__icon-buttons-container__icon-button"
+        iconPath="../../../assets/icons/email/email.svg" (clicked)="openPage(ModuleName.About)"></app-button-icon>
+    </div>
   </section>
   <section>
     <article>
-      <figure>
-        <img class="home__photo" src="../../../assets/img/photo4.svg">
-        <figcaption></figcaption>
-      </figure>
-      <figure>
-        <img *ngIf="isDarkModeEnable" class="home__logo" src="../../../assets/img/logo/symbol-text-white.svg">
-        <img *ngIf="!isDarkModeEnable" class="home__logo" src="../../../assets/img/logo/symbol-text-black.svg">
+      <figure class="home__image">
+        <img class="home__image--photo" src="../../../assets/img/photo4.svg">
         <figcaption></figcaption>
       </figure>
     </article>

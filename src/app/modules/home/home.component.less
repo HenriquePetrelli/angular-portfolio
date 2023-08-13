@@ -1,24 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@600&display=swap');
+@import url('/src/assets/style/variables/variables.less');
 
 .home {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  padding: 80px;
-  margin: 0px 175px;
-
+  margin: 0px 18%;
+  &__introdution {
+    display: flex;
+    margin-bottom: -10px;
+    &--primary-color {
+      margin-left: 5px;
+      color: @primary;
+    }
+  }
+  &__name {
+    color: @primary;
+    font-size: 3rem;
+    margin-bottom: 12px;
+    margin-left: -5px;
+    white-space: nowrap;
+  }
   &__title {
     font-size: 5rem;
     white-space: nowrap;
   }
 
   &__description {
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: 1px;
     line-height: 25px;
     margin: 20px 0;
     white-space: normal;
+    max-width: 80%;
   }
 
   &__buttons-container {
@@ -28,13 +42,25 @@
     }
   }
 
-  &__photo {
-    height: 500px;
+  &__icon-buttons-container {
+    margin-top: 48px;
+    display: flex;
+    &__icon-button {
+      margin-right: 28px;
+    }
   }
 
-  &__logo {
-    height: 300px;
-    margin-top: -90px;
+  &__image {
+    background-color: @primary;
+    height: 446px;
+    width: 501px;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 8px;
+    justify-content: center;
+    &--photo {
+      height: 600px;
+    }
   }
 }
 

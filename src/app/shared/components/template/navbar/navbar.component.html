@@ -1,7 +1,6 @@
 <nav id="navbar" class="navbar">
 
-  <img *ngIf="!isDarkModeEnabled" src="../../../../assets/img/logo/symbol-black.svg" class="logo-img" />
-  <img *ngIf="isDarkModeEnabled" src="../../../../assets/img/logo/symbol-white.svg" class="logo-img" />
+  <img src="../../../../../assets/img/logo/symbol.svg" class="logo-img" />
 
   <ul class="nav-list">
     <li class="nav-item" *ngFor="let tab of getTabs; index as i">
@@ -10,8 +9,9 @@
     </li>
     <div id="active" class="active" routerLinkActive="active"></div>
   </ul>
+  <div class="navbar__buttons">
+    <app-language-select></app-language-select>
 
-  <app-language-select></app-language-select>
-
-  <app-theme-toggle></app-theme-toggle>
+    <app-theme-toggle></app-theme-toggle>
+  </div>
 </nav>
