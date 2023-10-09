@@ -11,7 +11,6 @@ import { LanguageSelectComponent } from './shared/components/template/navbar/com
 import { ThemeToggleComponent } from './shared/components/template/navbar/components/theme-toggle/theme-toggle.component';
 import { CommonModule } from '@angular/common';
 import { AsideButtonsComponent } from './shared/components/template/aside-buttons/aside-buttons.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +26,7 @@ import { AsideButtonsComponent } from './shared/components/template/aside-button
     CoreModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

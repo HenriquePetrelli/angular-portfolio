@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { LanguageService } from '../../../../../services/language.service';
 import { Language } from './types';
 import { StorageKeys } from 'src/app/shared/services/local-storage';
+import { IconSize } from 'src/app/shared/components/icon/types';
 
 @Component({
   selector: 'app-language-select',
@@ -11,11 +12,11 @@ import { StorageKeys } from 'src/app/shared/services/local-storage';
 })
 export class LanguageSelectComponent {
   readonly language = Language;
+  readonly IconSize = IconSize;
   currentLanguage = '';
 
   constructor(
     private languageService: LanguageService,
-    private aboutService: AboutService
   ) {
     const localStorageLanguage = localStorage.getItem(StorageKeys.appLanguage);
     if (localStorageLanguage) {
@@ -58,13 +59,11 @@ export class LanguageSelectComponent {
         this.setLocalStorageLanguage(this.language.English);
         this.setLanguageGlobally(this.language.English);
         this.currentLanguage = this.language.English;
-        this.aboutService.getBio();
         break;
       case this.language.English:
         this.setLocalStorageLanguage(this.language.Portuguese);
         this.setLanguageGlobally(this.language.Portuguese);
         this.currentLanguage = this.language.Portuguese;
-        this.aboutService.getBio();
         break;
     }
   }

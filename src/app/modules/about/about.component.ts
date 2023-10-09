@@ -9,7 +9,11 @@ import { AboutService } from 'src/app/core/services/about/about.service';
 export class AboutComponent {
   constructor(private aboutService: AboutService) {}
 
-  get getBio() {
-    return this.aboutService.getBio();
+  get getAboutData() {
+    return this.aboutService.getAboutModuleData().about;
+  }
+
+  get getbuttonLabel() {
+    return this.aboutService.getAboutModuleData().buttonLabel;
   }
 }

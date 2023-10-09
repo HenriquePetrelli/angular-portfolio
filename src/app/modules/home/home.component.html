@@ -14,14 +14,18 @@
         [label]="homeModuleTexts.contactButtonLabel" (clicked)="openPage(ModuleName.Contact)"></app-button-secondary>
     </div>
     <div class="home__icon-buttons-container">
-      <app-button-icon class="home__icon-buttons-container__icon-button"
-        iconPath="../../../assets/icons/whatsApp/whatsapp.svg" (clicked)="openPage(ModuleName.About)"></app-button-icon>
-      <app-button-icon class="home__icon-buttons-container__icon-button"
+      <app-button-icon icon="AA0040" [size]="IconSize.md" (click)="openPage(ModuleName.About)"></app-button-icon>
+      <app-button-icon icon="AA0030" [size]="IconSize.md" (click)="openPage(ModuleName.About)"></app-button-icon>
+      <app-button-icon icon="AA0010" [size]="IconSize.md" (click)="openPage(ModuleName.About)"></app-button-icon>
+      <app-button-icon icon="AA0020" [size]="IconSize.md" (click)="openPage(ModuleName.About)"></app-button-icon>
+      <!-- <app-button-icon class="home__icon-buttons-container__icon-button"
+        iconPath="../../../assets/icons/whatsApp/whatsapp.svg" (clicked)="openPage(ModuleName.About)"></app-button-icon> -->
+      <!-- <app-button-icon class="home__icon-buttons-container__icon-button"
         iconPath="../../../assets/icons/linkedin/linkedin.svg" (clicked)="openPage(ModuleName.About)"></app-button-icon>
       <app-button-icon class="home__icon-buttons-container__icon-button"
         iconPath="../../../assets/icons/github/github.svg" (clicked)="openPage(ModuleName.About)"></app-button-icon>
       <app-button-icon class="home__icon-buttons-container__icon-button"
-        iconPath="../../../assets/icons/email/email.svg" (clicked)="openPage(ModuleName.About)"></app-button-icon>
+        iconPath="../../../assets/icons/email/email.svg" (clicked)="openPage(ModuleName.About)"></app-button-icon> -->
     </div>
   </section>
   <section>

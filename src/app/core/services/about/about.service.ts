@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { bioIntroduction } from './data';
+import { about, buttonLabel } from './data';
 import { languageStringToEnum } from 'src/app/shared/helper/language';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { Language } from 'src/app/shared/components/template/navbar/components/language-select/types';
@@ -8,25 +8,17 @@ import { Language } from 'src/app/shared/components/template/navbar/components/l
   providedIn: 'root'
 })
 export class AboutService {
- readonly language = Language
+  readonly language = Language
 
-  constructor(private languageService: LanguageService) { 
+  constructor(private languageService: LanguageService) {
   }
 
-  getBio() {
+  getAboutModuleData() {
     const language = this.languageService.appLanguage || this.language.Portuguese;
-    return bioIntroduction[languageStringToEnum(language)];
+    return {
+      about: about[languageStringToEnum(language)],
+      buttonLabel: buttonLabel[languageStringToEnum(language)],
+    };
   }
 
-  getProjects() {
-    return [
-      { name: "Projeto 1", description: "Descrição do Projeto 1" },
-      { name: "Projeto 2", description: "Descrição do Projeto 2" },
-      { name: "Projeto 3", description: "Descrição do Projeto 3" }
-    ];
-  }
-
-  getSkills() {
-    return ["JavaScript", "Angular", "React", "HTML/CSS"];
-  }
 }

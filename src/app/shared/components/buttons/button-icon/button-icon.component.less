@@ -1,37 +1,36 @@
 @import url('/src/assets/style/variables/variables.less');
 
-.button-icon {
-  width: 25px;
-  filter: @white-icon;
-}
-
-button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-  height: 25px;
-  width: 25px;
+.button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    // width: 50px;
+    border-radius: 50%;
+    display: flex;
+    // height: 50px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .button-container {
-  display: flex;
-  width: 25px;
-  height: 25px;
   position: relative;
-  cursor: pointer;
-  background-color: @primary;
+  // cursor: pointer;
+  // background: #e8e9ed;
+  padding: 5px;
   border-radius: 50%;
-  padding: 12px;
-  box-shadow: 0 2px 4px rgba(0, 16, 75, 0.2);
-  align-items: center;
+  display: flex;
+  /* flex-direction: column; */
+  /* align-content: center; */
   justify-content: center;
+  align-items: center;
 
   &:not(:disabled) {
     &:hover {
+      cursor: pointer;
       transform: scale(1.0175);
-      background-color: @primary-dark;
+      background-color: #e8e9ed;
     }
   }
 }

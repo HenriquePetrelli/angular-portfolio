@@ -1,0 +1,33 @@
+<div class="carousel">
+  <app-button-icon icon="BA0010" [size]="IconSize.md" (click)="prevSlide()"></app-button-icon>
+  <div class="carousel-frame" #carouselFrame (mousedown)="handleDragStart($event)"
+    (touchstart)="handleDragStart($event)">
+    <div class="carousel-slides">
+      <div *ngFor="let index of visibleIndices" class="carousel-slide">
+        <div class="border-wrap" [ngClass]="{'border-wrap--middle': middleIndex === index}">
+          <div class="card" [ngClass]="{'card--middle': middleIndex === index}">
+              <img class="card__img-section__img" [ngClass]="{'card__img-section__img--middle': middleIndex === index}"
+                [src]="cardsAbout[index].imageName" [alt]="cardsAbout[index].imageLabel">
+            <div class="card__content-section" [ngClass]="{'card__content-section--middle': middleIndex === index}">
+              <h1 class="card__content-section__title"
+                [ngClass]="{'card__content-section__title--middle': middleIndex === index}">{{ cardsAbout[index].title}}
+              </h1>
+              <p class="card__content-section__description"
+                [ngClass]="{'card__content-section__description--middle': middleIndex === index}">
+                {{cardsAbout[index].description }}
+              </p>
+                <app-button-primary [label]="cardButtonLabel"
+                  (clicked)="openDetail(cardsAbout[index])">
+                </app-button-primary>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-button-icon icon="BA0020" [size]="IconSize.md" (click)="prevSlide()"></app-button-icon>
+</div>
+<div class="pagination">
+  <span *ngFor="let pag of cardsAbout; let i = index" class="dot" [ngClass]="{ 'active': i === currentIndex }"
+    (click)="changePagination(i)"></span>
+</div>

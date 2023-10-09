@@ -3,6 +3,7 @@ import { DarkModeService } from 'src/app/shared/services/dark-mode.service';
 import { HomeService } from 'src/app/core/services/home/home.service';
 import { Router } from '@angular/router';
 import { ModuleName } from 'src/app/shared/components/template/navbar/types';
+import { IconSize } from 'src/app/shared/components/icon/types';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { ModuleName } from 'src/app/shared/components/template/navbar/types';
 export class HomeComponent {
   age: number | undefined;
   readonly ModuleName = ModuleName;
+  readonly IconSize = IconSize
 
   constructor(
     private homeService: HomeService,

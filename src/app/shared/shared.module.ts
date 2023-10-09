@@ -4,12 +4,14 @@ import { ButtonPrimaryComponent } from './components/buttons/button-primary/butt
 import { ButtonSecondaryComponent } from './components/buttons/button-secondary/button-secondary.component';
 import { GalleryHoverComponent } from './components/image-exibition/gallery-hover/gallery-hover.component';
 import { ButtonIconComponent } from './components/buttons/button-icon/button-icon.component';
+import { IconComponent } from './components/icon/icon.component';
 
 @NgModule({
   declarations: [
     ButtonPrimaryComponent,
     ButtonSecondaryComponent,
     GalleryHoverComponent,
+    IconComponent,
     ButtonIconComponent
   ],
   imports: [CommonModule],
@@ -17,7 +19,8 @@ import { ButtonIconComponent } from './components/buttons/button-icon/button-ico
     ButtonPrimaryComponent,
     ButtonSecondaryComponent,
     GalleryHoverComponent,
+    IconComponent,
     ButtonIconComponent
-  ], 
+  ],
 })
-export class SharedModule {}
+export class SharedModule { }

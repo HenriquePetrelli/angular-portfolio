@@ -11,6 +11,7 @@ import { ExperienceItem } from 'src/app/core/services/experience/types';
 export class TimeLineComponent {
   isOpenDetailModal = false;
   itemDetail!: ExperienceItem;
+  
   constructor(private experienceService: ExperienceService) {}
 
   get homeModuleTexts() {

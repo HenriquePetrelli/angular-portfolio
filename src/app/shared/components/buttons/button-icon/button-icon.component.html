@@ -1,4 +1,5 @@
-<div class="button-container">
-    <button (click)="onClick()" [disabled]="disabled" class="button-primary"><img class="button-icon"
-            [src]="iconPath" /></button>
+<div class="button-container" (click)="onClick()">
+    <button class="button" [id]="buttonId">
+        <app-icon [icon]="icon" [size]="size" [color]="color" [isButton]="true"></app-icon>
+    </button>
 </div>

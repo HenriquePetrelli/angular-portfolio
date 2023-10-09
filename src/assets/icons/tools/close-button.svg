@@ -5,5 +5,5 @@
 	</defs>
 	<style>
 	</style>
-	<use id="Background" href="#img1" x="5" y="5"/>
+	<use id="close-button" href="#img1" x="5" y="5"/>
 </svg>

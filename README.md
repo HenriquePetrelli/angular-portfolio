@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+Pendências:
+
+- Responsividade mobile
+- Testes unitários (jest)
+- Testes visuais (cypress)
+- Tornar acessível (a11y)
+- Criar template de curriculo dinâmico em pdf (.nj)
+- Alterar nomenclatura de icones e adicionar documentação (https://zeroheight.com/0ddb86f8a/p/197030-warren-icons/b/075098)
